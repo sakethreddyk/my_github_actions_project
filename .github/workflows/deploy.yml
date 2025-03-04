@@ -12,12 +12,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3  # Fetch the latest code
-
+      
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'  # Using Node.js 18
-
+          
+      - name: Clean npm cache
+        run: npm cache clean --force
+        
       - name: Install Dependencies
         run: npm install  # Install all required dependencies
 
